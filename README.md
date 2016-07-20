@@ -13,7 +13,8 @@
   $info['authorizer_refresh_token'] ='';//如果已经授权完成，那么此参数必填，否则无法刷新 authorizer_access_token，授权事件不需要此参数
 2、接着实例化这个类
 $wechatObj = new WechatThird($info);
-3、若是授权事件接收的方法则：
+3、
+1>若是授权事件接收的方法则：
 $InfoType = $wechatObj->getRev()->getRevAuthInfoType();
 switch( $InfoType ){
 			case WechatThird::INFOTYPE_AUTHORIZED:
@@ -26,7 +27,7 @@ switch( $InfoType ){
 			//取消授权
 			/*codes*/
 	}
-若是推送公众号的消息事件接收方法，则可以根据收到的消息类型进行处理
+2>若是推送公众号的消息事件接收方法，则可以根据收到的消息类型进行处理
 $MsgType = $wechatObj->getRev()->getRevType();
 		switch( $MsgType ){
 			case WechatThird::MSGTYPE_EVENT:
